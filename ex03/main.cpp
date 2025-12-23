@@ -6,12 +6,11 @@
 /*   By: barmarti <barmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:55:53 by barmarti          #+#    #+#             */
-/*   Updated: 2025/12/19 19:35:26 by barmarti         ###   ########.fr       */
+/*   Updated: 2025/12/23 12:19:32 by barmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 void	ClapTrapTest( void )
 {
@@ -191,8 +190,67 @@ void	FragTrapTest( void )
 	return ;
 }
 
-void	DiamondTrap( void )
+void	DiamondTrapTest( void )
 {
+	std::cout << "\n=======DiamondTrapTest=======\n" <<std::endl;
+	DiamondTrap Pierre;
+	DiamondTrap Paul( "Paul" );
+	DiamondTrap Jack( "Jack" );
+	
+	Pierre.setName( "Pierre" );
+	Pierre.whoAmI();
+	std::cout << std::endl;
+	Pierre.attack( "Fake Paul" );
+	std::cout << std::endl;
+	Pierre.takeDamage( 5 );
+	std::cout << std::endl;
+	Pierre.beRepaired( 5 );
+	std::cout << std::endl;
+	Pierre.attack( "Fake Paul" );
+	std::cout << std::endl;
+	Pierre.takeDamage( 5 );
+	std::cout << std::endl;
+	Pierre.attack( "Fake Paul" );
+	std::cout << std::endl;
+	Pierre.attack( "Fake Paul" );
+	std::cout << std::endl;
+	Pierre.attack( "Fake Paul" );
+	std::cout << std::endl;
+	Pierre.attack( "Fake Paul" );
+	std::cout << std::endl;
+	Pierre.attack( "Fake Paul" );
+	std::cout << std::endl;
+	Pierre.beRepaired( 5 );
+	std::cout << std::endl;
+	Pierre.attack( "Fake Paul" );
+	std::cout << std::endl;
+	Pierre.attack( "Fake Paul" );
+	std::cout << std::endl;
+
+	Paul.whoAmI();
+	std::cout << std::endl;
+	Paul.takeDamage(25);
+	std::cout << std::endl;
+	Paul.attack (" Fake Pierre ");
+	std::cout << std::endl;
+	Paul.takeDamage(25);
+	std::cout << std::endl;
+	Paul.beRepaired(25);
+	std::cout << std::endl;
+
+	Jack.whoAmI();
+	std::cout << std::endl;
+	Jack.takeDamage(75);
+	std::cout << std::endl;
+	DiamondTrap JackCopy( Jack );
+	JackCopy.whoAmI();
+	std::cout << std::endl;
+	JackCopy.takeDamage(25);
+	std::cout << std::endl;
+	
+	ClapTrap *ptr = new DiamondTrap();
+	delete ptr;
+
 	return ;
 }
 
@@ -201,6 +259,7 @@ int	main( void )
 	ClapTrapTest();
 	ScavTrapTest();
 	FragTrapTest();
+	DiamondTrapTest();
 	
 	return 0;
 }
